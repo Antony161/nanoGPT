@@ -6,6 +6,7 @@ import pickle
 from contextlib import nullcontext
 import torch
 import tiktoken
+import torch.ao.quantization
 from model import GPTConfig, GPT
 
 # -----------------------------------------------------------------------------
@@ -38,12 +39,14 @@ if init_from == 'resume':
     checkpoint = torch.load(ckpt_path, map_location=device)
     gptconf = GPTConfig(**checkpoint['model_args'])
     model = GPT(gptconf)
+    non_quantized_model=torch.load('saved_model')
+    model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8)
     state_dict = checkpoint['model']
     unwanted_prefix = '_orig_mod.'
     for k,v in list(state_dict.items()):
         if k.startswith(unwanted_prefix):
             state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
-    model.load_state_dict(state_dict)
+    model.load_state_dict(state_dict,strict=True)
 elif init_from.startswith('gpt2'):
     # init from a given GPT-2 model
     model = GPT.from_pretrained(init_from, dict(dropout=0.0))
