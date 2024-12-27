@@ -10,14 +10,24 @@ checkpoint=torch.load('/home/guest/nanoGPT/out-shakespeare-char/ckpt.pt',weights
 
 gptconf = GPTConfig(**checkpoint['model_args'])
 model = GPT(gptconf)
+non_quantized_model=torch.load('saved_model')
+model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8) #quantizing the model
+torch.save(model.state_dict(),'quantized_model_state_dict')  #saving the quantized model state dict
+
+
+
+qmodel_state_dict=torch.load('/home/guest/nanoGPT/quantized_model_state_dict')
+
 state_dict = checkpoint['model']
 unwanted_prefix = '_orig_mod.'
 for k,v in list(state_dict.items()):
         if k.startswith(unwanted_prefix):
             state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
-model.load_state_dict(state_dict,strict=True)
+model.load_state_dict(qmodel_state_dict,strict=True)
 model.eval()
 model.to(device)
+
+
 load_meta = False
 if init_from == 'resume' and 'config' in checkpoint and 'dataset' in checkpoint['config']: # older checkpoints might not have these...
     meta_path = os.path.join('data', checkpoint['config']['dataset'], 'meta.pkl')

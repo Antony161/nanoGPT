@@ -8,6 +8,7 @@ import torch
 import tiktoken
 import torch.ao.quantization
 from model import GPTConfig, GPT
+from collections import OrderedDict
 
 # -----------------------------------------------------------------------------
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
@@ -40,17 +41,21 @@ if init_from == 'resume':
     gptconf = GPTConfig(**checkpoint['model_args'])
     model = GPT(gptconf)
     non_quantized_model=torch.load('saved_model')
-    model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8)
+
+    model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8) #quantizing the model
+
+    torch.save(model.state_dict(),'quantized_model_state_dict')  #saving the quantized model state dict
+
+    qmodel_state_dict=torch.load('/home/guest/nanoGPT/quantized_model_state_dict')
     state_dict = checkpoint['model']
     unwanted_prefix = '_orig_mod.'
     for k,v in list(state_dict.items()):
-        if k.startswith(unwanted_prefix):
+        if k.startswith(unwanted_prefix) :
             state_dict[k[len(unwanted_prefix):]] = state_dict.pop(k)
-    model.load_state_dict(state_dict,strict=True)
+    model.load_state_dict(qmodel_state_dict)
 elif init_from.startswith('gpt2'):
     # init from a given GPT-2 model
     model = GPT.from_pretrained(init_from, dict(dropout=0.0))
-
 model.eval()
 model.to(device)
 if compile:

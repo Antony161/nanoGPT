@@ -331,7 +331,7 @@ while True:
     # termination conditions
     if iter_num > max_iters:
         break
-torch.save(model,'saved_model')
+torch.save(model.state_dict(),'state_dict_model')
 
 if ddp:
     destroy_process_group()
