@@ -1,0 +1,201 @@
+/home/guest/nanoGPT/sample.py:40: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(ckpt_path, map_location=device)
+/home/guest/nanoGPT/sample.py:43: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  non_quantized_model=torch.load('saved_model')
+/home/guest/nanoGPT/sample.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  qmodel_state_dict=torch.load('/home/guest/nanoGPT/quantized_model_state_dict')
+/home/guest/nanoGPT/lib/python3.12/site-packages/torch/_utils.py:392: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  device=storage.device,
+Overriding: out_dir = out-shakespeare-char
+Overriding: device = cpu
+number of parameters: 0.80M
+Loading meta from data/shakespeare_char/meta.pkl...
+
+The lige them sholds fater didor no one all eye.
+
+KING RICHARD IIAN not wrauster: not the of hand of her
+Ange for dead, 'Twhing nece that in the
+worth my frests a hand hood for of this pervess
+Nother and and nish hand for the thuse seed them.
+I seet in your know the spaire,
+What way ve in the leddland to this:
+Their hum not with it blay to sester of her prain
+To seady King not not of thee, and So from toghne!
+
+SAPELUCUS:
+Yet more he hath, at forieng good Giver Eyboth,
+Centery as enderner her tha
+---------------
+
+Rechiced thee wilf:
+You reasunt latse in dy-embot the pristan,
+And than face a seer how he fire dights,
+Not that I much of the that have not be thing they?
+
+GUCESS: I paroth, my let a fither the to in than they,
+houb'd have as not thy brip are lay come endrabled,
+And latter it of he the spueself I worselve,
+I sould sold bod shalt yourned be all in bother
+Whe his a dige the daid to thy king. So not, I and somen mater:
+Of he do so:
+O my heave gat an me are stain hath you.
+
+KIS Ean:
+How oth the mor
+---------------
+
+Sen our rudel persing effer to sup.
+
+HENNRY HARRD II:
+Whom not to my lords.
+
+HENRY HARD IIF RIXE:
+No, we he ampued and the a exty vay leath a to a center,
+In my somen, are them in on do bee.
+
+DUKE VINCENTIO:
+All so cerven there in his bleact thought, an he and.
+
+OMPULEV:
+See as bet son, and I bearath?
+
+BRUCETER:
+
+Shibor, in a she comping the ward shall and in yours;
+Why his rest shall he pran what you shalt are
+with she opher to the firesly thee scand the
+Proviove and have the peaser enfy but or
+---------------
+
+If the she rof the for I wo as
+So inceal of the her bouch arther four dide,
+A and day reppurer sonques.
+
+
+KINGHARD IV:
+Ound the well there fair of that he able blow whires.
+
+HARNIO:
+Wemak'd the price how is counsel.
+
+GROKLABUS:
+Why, be them my loubbst wend then deeth same prought
+On doth to tway ond to and shough herd thee,
+On bleater in would asted lonk of with hat
+The woe morth, as for you wers?
+
+First YORKE:
+I sen, my he st it stor that price thy wear
+sugh me all the will farcher thou a tough
+---------------
+
+Who cand have lookss of I as klow. There reagn souch,
+In all he lese more amme sake of thy ar
+sten that so.
+Lo:
+Well, then how the sheet your the contert in be
+From sting and that shand come abain;
+To look the sway preall good that see, I heave.
+
+Sid VENY LEO:
+Hensen a me for make ar of the my thee, I heave, whore!
+Oven what that aft to it the me: our my Hind.
+
+COMERIO:
+Nay, my learlous I thee, good out shall the feare,
+Thy wile more king a mirtue of or come.
+This, a hat hath's briold a your not
+---------------
+
+I the juttich thee contlery ble fult, and her sting,
+Will upatice, I I now of not will, my for Cionst.
+
+DUVINNGSTER:
+
+Nurse.
+
+The grive to with wild heir place from,
+Ind more chill'ers the Eeld speack's you,
+I seat senving they to done art age,
+End was but but un that the not thing not
+The shall house thort heart supon
+This fain fore the grence of the kine's heaved execter,
+In it you not sought'd ned in the so;
+And she dight be of he:
+And my bust not dosend pose fearoutes lay.
+
+CORIOLUTANUNES:
+W
+---------------
+
+In good pan, beart a contronny!
+
+YYORK:
+
+Combe you bay may make the arfore but your!
+
+MEOLIUs more; tha's lord somp.
+
+DUKE E MINEN:
+Yet! you not for as a to not whoe head to more
+And all thead mone weet in that
+Is more for he death word with out be mone
+Ar oun a sold I sick a world.
+
+Seculd I plain: sirde me that our thing leaty
+Warwant bell wah stee my last a dike in the bee
+To good the the have wilk one as so will not
+Heres flow from seffulers arm, and so-well
+Theire hath geace the in for sto 
+---------------
+
+
+The beset say ducke in Goddmery life and thea;
+And my stire of than uwites you theseft,
+Dengleds me so, have dearfuled and yous mequeen
+Appose this the hosen's betirung were the seem:
+And plohed my doness of the pright I know wixes,
+Though must not that sine appein, if no he
+theirs to kean the of here.
+
+Citizen:
+You with himbons the can he conserved the than it bellies
+When are Hil where these foul: to the right other,
+That have tone ofy that thee brod prong;
+That say death his finces of thy sa
+---------------
+
+The bakem of srY ady I am knot my call alcioin,
+What is fort a lough had in day my to soul!
+
+BORT:
+You, and full in that my shown all fallow he thee.
+
+LUTERCEUS:
+Well, appardines as dishery sue and toor tough,
+Sen your hard shale thee but we with the sone
+Dother brishall the hught mown the I than shame they,
+So brow side ond my the not caumpaus are and to crowly thee
+the should deats the san.
+
+LEUCUSTIO:
+Whe cours; he you was long; hence the lee,
+Liops suelf but nater to greps not so for seem.
+W
+---------------
+
+Buse so thee be scue thou hersing these but of dight
+Of acenitian, and that hath ame ere
+How not you, pay, thear the and that in fatle;
+The paysers the their sparing not of your colds-be
+The a charme Romentione would the be reades and
+Though hate or ben him? and of donger here die:
+For not he very ear dough death.
+
+Sond Excaring I shall have to be be we thead be this lage?
+
+ISABELL:
+Thy swark wouch farte to much enjudys:
+Here from in to agent sack the daugh aut in
+Frech Eur in our not to word yo
+---------------
