@@ -42,8 +42,9 @@ if init_from == 'resume':
     model = GPT(gptconf)
     non_quantized_model=torch.load('saved_model')
 
-    model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8) #quantizing the model
 
+
+    model=torch.ao.quantization.quantize_dynamic(non_quantized_model,{torch.nn.Linear},dtype=torch.qint8) #quantizing the model
     torch.save(model.state_dict(),'quantized_model_state_dict')  #saving the quantized model state dict
 
     qmodel_state_dict=torch.load('/home/guest/nanoGPT/quantized_model_state_dict')
@@ -95,3 +96,17 @@ with torch.no_grad():
             y = model.generate(x, max_new_tokens, temperature=temperature, top_k=top_k)
             print(decode(y[0].tolist()))
             print('---------------')
+
+
+def print_size_model(model):
+    torch.save(model.state_dict(),'temp.p')
+    size=os.path.getsize("temp.p")
+    print('model: ','size(kb):',size/1e3)
+    os.remove('temp.p')
+    return size
+
+print('non_quantized_model')
+original_model_size=print_size_model(non_quantized_model)
+
+print('quantized_model')
+quantized_model_size=print_size_model(model)
