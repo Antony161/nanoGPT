@@ -8,7 +8,6 @@ import torch
 import tiktoken
 import torch.ao.quantization
 from model import GPTConfig, GPT
-from collections import OrderedDict
 
 # -----------------------------------------------------------------------------
 init_from = 'resume' # either 'resume' (from an out_dir) or a gpt2 variant (e.g. 'gpt2-xl')
